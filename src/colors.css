@@ -1,0 +1,10 @@
+:root {
+    --window-bg: #121212;
+    --primary-bg: #1e1e1f;
+    --secondary-bg: #282829;
+    --primary-text: #fafafa;
+    --secondary-text: #efc774;
+    --bright-text: #fafafa;
+    --gray-text: hsla(0, 0%, 84%, 0.7);
+    --profile-pic-gradient: linear-gradient(90deg,rgba(63, 71, 70, 1) 78%, rgba(18, 18, 18, 1) 100%);
+}

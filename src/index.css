@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* App.css */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-bg); /* dark track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-text);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px var(--secondary-text); /* creates an "inner line" effect */
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    transition: all 0.5s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+    box-shadow: inset 0 0 0 2px #d4af37;
+}
+
