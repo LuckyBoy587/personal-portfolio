@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Music Player App",
+    "description": "A fully functional offline music player built using Kotlin and XML with media controls and playlist support.",
+    "tech": ["Kotlin", "XML", "Android Studio"],
+    "github": "https://github.com/LuckyBoy587/Music-Player-In-Kotlin",
+    "live": "",
+    "image": ""
+  },
+  {
+    "title": "Chatbot with Keras",
+    "description": "A simple chatbot built using deep learning (Keras and TensorFlow) that handles basic queries.",
+    "tech": ["Python", "Keras", "TensorFlow", "NumPy"],
+    "github": "https://github.com/LuckyBoy587/ChatBot-for-LMS",
+    "live": "",
+    "image": ""
+  },
+  {
+    "title": "Code Tracker Hub",
+    "description": "A centralized dashboard that integrates coding platform progress like LeetCode, GeeksForGeeks, and more, giving users an overview of their coding journey.",
+    "tech": ["React", "REST API", "Selenium", "GraphQL"],
+    "github": "https://github.com/LuckyBoy587/Code-Tracker-Hub",
+    "live": "",
+    "image": ""
+  },
+  {
+    "title": "CarPoolingSystem",
+    "description": "A backend service for organizing carpool rides, enabling users to register, manage vehicles, and coordinate ride-sharing efficiently and securely.",
+    "tech": ["Spring Boot", "Spring Data JPA", "Java", "REST API"],
+    "github": "https://github.com/LuckyBoy587/CarPoolingSystem",
+    "live": "",
+    "image": ""
+  },
+  {
+    "title": "Chess-Pygame",
+    "description": "A graphical chess game implemented using Pygame, featuring an AI opponent that utilizes alpha-beta pruning to evaluate possible moves and select the best one, providing interactive play against the computer with move validation and game logic.",
+    "tech": ["Python", "Pygame", "Alpha-Beta Pruning", "Minimax Algorithm"],
+    "github": "https://github.com/LuckyBoy587/Chess-Pygame",
+    "live": "",
+    "image": ""
+  },
+  {
+    "title": "Tetris-Java",
+    "description": "A classic Tetris game implemented in Java, providing smooth gameplay, intuitive controls, and traditional Tetris mechanics. The project features a graphical interface for interactive play, score tracking, and increasing difficulty levels as the game progresses.",
+    "tech": ["Java", "Swing", "Game Development", "Object-Oriented Programming"],
+    "github": "https://github.com/LuckyBoy587/Tetris-Java",
+    "live": "",
+    "image": ""
+  }
+]

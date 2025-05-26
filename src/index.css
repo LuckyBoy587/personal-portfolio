@@ -3,6 +3,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--window-bg);
 }
 
 /* App.css */
@@ -29,3 +30,31 @@ body {
     box-shadow: inset 0 0 0 2px #d4af37;
 }
 
+/* Put in styles.css or global.css */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+    touch-action: pan-x;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari */
+}
+
+.scroll-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.scroll-container .flex {
+    display: inline-flex;
+    animation: scroll 2s linear infinite alternate;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100%));
+    }
+}

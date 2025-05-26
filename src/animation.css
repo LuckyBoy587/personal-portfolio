@@ -1,0 +1,65 @@
+@keyframes onScreenAppearance {
+    from {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn-from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn-from-right {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes blurFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.blur-fade-in {
+    animation: blurFadeIn 0.25s ease forwards;
+}
+
+.animate-left-to-right {
+    animation: fadeIn-from-left 0.25s ease-in-out;
+}
+
+.animate-right-to-left {
+    animation: fadeIn-from-right 0.25s ease-in-out;
+}
+
+.animate-on-screen {
+    animation: onScreenAppearance 0.25s ease-in-out;
+    transform-origin: center;
+}

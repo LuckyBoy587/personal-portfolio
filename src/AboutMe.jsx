@@ -1,8 +1,9 @@
+import ContextBox from "./utility/context-box.jsx";
+
 const AboutMe = () => {
   return (
-    <div className={"flex flex-col gap-8"}>
-      <div
-        className={"flex flex-col h-fit w-full bg-[var(--primary-bg)] p-8 gap-4 rounded-2xl border-2 border-[var(--secondary-bg)]"}>
+    <div className={"flex flex-col gap-8 min-w-[600px] blur-fade-in origin-top"}>
+      <ContextBox>
         <div className="flex items-center gap-4 group transition-all duration-300">
           <div
             className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
@@ -15,18 +16,17 @@ const AboutMe = () => {
             Technology student who's always chasing that next line of code and the thrill of building something
             impactful.</p>
 
-          <p className={"text-[var(--gray-text)]"}>Currently in my second year of B.Tech IT, I spend my days diving deep
+          <p className={"text-[var(--gray-text)]"}>Currently in my third year of B.Tech IT, I spend my days diving deep
             into Data Structures & Algorithms, exploring the vast world of AI and Machine Learning, and crafting
             projects with ReactJS, Kotlin, and Spring Boot. Whether it's a chatbot that understands sarcasm or a music
             player coded from scratch, I love bringing ideas to life through code.</p>
 
           <p className={"text-[var(--gray-text)]"}>Beyond my academic and technical interests, I'm passionate about
             anime, always keeping up with the latest series. In my free time, you'll often find me diving into Genshin
-            Impact, and occasionally engaging in some competitive fun in Free Fire.</p>
+            Impact, and occasionally engaging in some fun in Minecraft.</p>
         </section>
-      </div>
-      <div
-        className={"flex flex-col h-fit w-full bg-[var(--primary-bg)] p-8 gap-4 rounded-2xl border-2 border-[var(--secondary-bg)]"}>
+      </ContextBox>
+      <ContextBox>
         <div className="flex items-center gap-4 group transition-all duration-300">
           <div
             className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
@@ -65,22 +65,22 @@ const AboutMe = () => {
               </div>
             ))
           }</div><div className={"flex flex-col gap-4"}>{
-            [
-              {icon: "fa-brands fa-react", label: "ReactJS"},
-              {icon: "fa-solid fa-database", label: "MongoDB"},
-              {icon: "fa-solid fa-wind", label: "Tailwind CSS"},
-            ].map(({icon, label}) => (
-              <div key={label} className="flex items-center gap-4 group transition-all duration-300">
-                <div
-                  className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-                  <i className={`${icon}`}></i>
-                </div>
-                <p>{label}</p>
+          [
+            {icon: "fa-brands fa-react", label: "ReactJS"},
+            {icon: "fa-solid fa-database", label: "MongoDB"},
+            {icon: "fa-solid fa-wind", label: "Tailwind CSS"},
+          ].map(({icon, label}) => (
+            <div key={label} className="flex items-center gap-4 group transition-all duration-300">
+              <div
+                className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
+                <i className={`${icon}`}></i>
               </div>
-            ))
-          }</div>
+              <p>{label}</p>
+            </div>
+          ))
+        }</div>
         </div>
-      </div>
+      </ContextBox>
     </div>
   )
 }
