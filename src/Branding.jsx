@@ -30,7 +30,7 @@ const Branding = () => {
       style={{top: topValue}}>
       <div className="flex justify-center items-center flex-col gap-2">
         <div className="flex rounded-full overflow-hidden w-3/4 aspect-square mx-auto">
-          <img className="w-full h-full object-cover" src="/me.jpg" alt="Me"/>
+          <img className="w-full h-full object-cover" src="./me.jpg" alt="Me"/>
         </div>
         <p className="text-[var(--primary-text)] mt-3 text-2xl text-center font-semibold tracking-wide">Kowshik
           Baskaran</p>
