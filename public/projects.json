@@ -5,7 +5,7 @@
     "tech": ["Kotlin", "XML", "Android Studio"],
     "github": "https://github.com/LuckyBoy587/Music-Player-In-Kotlin",
     "live": "",
-    "image": ""
+    "image": "./music-player.png"
   },
   {
     "title": "Chatbot with Keras",
@@ -13,7 +13,7 @@
     "tech": ["Python", "Keras", "TensorFlow", "NumPy"],
     "github": "https://github.com/LuckyBoy587/ChatBot-for-LMS",
     "live": "",
-    "image": ""
+    "image": "./chatbot.png"
   },
   {
     "title": "Code Tracker Hub",
@@ -21,7 +21,7 @@
     "tech": ["React", "REST API", "Selenium", "GraphQL"],
     "github": "https://github.com/LuckyBoy587/Code-Tracker-Hub",
     "live": "",
-    "image": ""
+    "image": "./code-tracker-hub.png"
   },
   {
     "title": "CarPoolingSystem",
@@ -29,15 +29,15 @@
     "tech": ["Spring Boot", "Spring Data JPA", "Java", "REST API"],
     "github": "https://github.com/LuckyBoy587/CarPoolingSystem",
     "live": "",
-    "image": ""
+    "image": "./car-pooling-system.png"
   },
   {
-    "title": "Chess-Pygame",
+    "title": "Chess-AI",
     "description": "A graphical chess game implemented using Pygame, featuring an AI opponent that utilizes alpha-beta pruning to evaluate possible moves and select the best one, providing interactive play against the computer with move validation and game logic.",
     "tech": ["Python", "Pygame", "Alpha-Beta Pruning", "Minimax Algorithm"],
     "github": "https://github.com/LuckyBoy587/Chess-Pygame",
     "live": "",
-    "image": ""
+    "image": "./chess-ai.png"
   },
   {
     "title": "Tetris-Java",
@@ -45,6 +45,14 @@
     "tech": ["Java", "Swing", "Game Development", "Object-Oriented Programming"],
     "github": "https://github.com/LuckyBoy587/Tetris-Java",
     "live": "",
-    "image": ""
+    "image": "./tetris.png"
+  },
+  {
+    "title": "TODO-Web-App",
+    "description": "A web-based task management application that allows users to create, edit, and organize their to-do lists. The app provides functionalities such as adding new tasks, marking tasks as completed, editing existing items, and deleting tasks, offering a simple and interactive interface for personal productivity.",
+    "tech": ["ReactJS", "JavaScript", "CSS", "Web App"],
+    "github": "https://github.com/LuckyBoy587/TODO-Web-App",
+    "live": "https://luckyboy587.github.io/TODO-Web-App/",
+    "image": "./todo-web-app.png"
   }
 ]

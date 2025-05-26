@@ -7,4 +7,6 @@
     --bright-text: #fafafa;
     --gray-text: hsla(0, 0%, 84%, 0.7);
     --profile-pic-gradient: linear-gradient(90deg,rgba(63, 71, 70, 1) 78%, rgba(18, 18, 18, 1) 100%);
+    --arrow-bg: rgba(255, 255, 255, 0.05);
+    --arrow-hover-bg: rgb(83, 83, 83);
 }

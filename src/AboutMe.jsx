@@ -2,7 +2,7 @@ import ContextBox from "./utility/context-box.jsx";
 
 const AboutMe = () => {
   return (
-    <div className={"flex flex-col gap-8 min-w-[600px] blur-fade-in origin-top"}>
+    <div className={"flex flex-col gap-8 min-w-[min(600px, 100vw)] blur-fade-in origin-top"}>
       <ContextBox>
         <div className="flex items-center gap-4 group transition-all duration-300">
           <div
@@ -34,7 +34,7 @@ const AboutMe = () => {
           </div>
           <p className="text-[var(--bright-text)] text-4xl">Tech Stack</p>
         </div>
-        <div className={"grid grid-cols-3 text-[var(--gray-text)] min-w-min"}>
+        <div className={"grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 text-[var(--gray-text)] min-w-min"}>
           <div className={"flex flex-col gap-4"}>{
             [
               {icon: "fa-brands fa-java", label: "Java"},

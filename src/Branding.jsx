@@ -7,25 +7,26 @@ const Branding = () => {
   useEffect(() => {
     const updateTopValue = () => {
       if (brandingRef.current) {
-        const componentHeight = brandingRef.current.offsetHeight; // Get the component's height
-        const newTopValue = `calc((100vh - ${componentHeight}px) / 2)`; // Calculate the new top value
-        setTopValue(newTopValue); // Update the state
-        console.log(newTopValue)
+        const componentHeight = brandingRef.current.offsetHeight;
+        const newTopValue = `calc((min(100vh, 100%) - ${componentHeight}px) / 2)`;
+        setTopValue(newTopValue);
       }
     };
 
-    updateTopValue(); // Update on load
-    window.addEventListener("resize", updateTopValue); // Update on window resize
+    updateTopValue();
+    window.addEventListener("resize", updateTopValue);
+    window.addEventListener("scroll", updateTopValue);
 
     return () => {
-      window.removeEventListener("resize", updateTopValue); // Cleanup event listener
+      window.removeEventListener("resize", updateTopValue);
+      window.removeEventListener("scroll", updateTopValue);
     };
   }, []);
 
   return (
     <div
       ref={brandingRef}
-      className={`flex lg:flex-col lg:self-start self-center justify-center items-center gap-4 w-full lg:max-w-[300px] h-fit border border-[var(--secondary-bg)] p-8 bg-[var(--primary-bg)] min-w-min rounded-2xl animate-right-to-left lg:sticky transition-all duration-300`}
+      className={`flex flex-col md:flex-row lg:flex-col lg:self-start self-center justify-center items-center gap-4 w-full lg:max-w-[300px] h-fit border border-[var(--secondary-bg)] p-8 bg-[var(--primary-bg)] min-w-[min(600px, 100vw)] lg:min-w-min rounded-2xl animate-right-to-left lg:sticky transition-all duration-300`}
       style={{top: topValue}}>
       <div className="flex justify-center items-center flex-col gap-2">
         <div className="flex rounded-full overflow-hidden w-3/4 aspect-square mx-auto">
@@ -39,7 +40,7 @@ const Branding = () => {
         </div>
       </div>
 
-      <div className="w-full h-6 flex items-center">
+      <div className="w-full h-6 lg:visible lg:flex items-center">
         <div className="w-full h-0.5 bg-[var(--secondary-bg)]"/>
       </div>
 
@@ -62,7 +63,7 @@ const Branding = () => {
         ))}
       </div>
 
-      <div className="flex gap-6 mt-4 text-2xl text-[var(--gray-text)]">
+      <div className="flex flex-row md:flex-col lg:flex-row gap-6 mt-4 text-2xl text-[var(--gray-text)]">
         {[
           {icon: "fa-github", url: "https://github.com/LuckyBoy587"},
           {icon: "fa-linkedin", url: "https://www.linkedin.com/in/kowshi587/"},

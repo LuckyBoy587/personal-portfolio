@@ -3,7 +3,7 @@ import ContextBox from "./utility/context-box.jsx";
 
 const Resume = () => {
   return (
-    <div className={"flex flex-col gap-8 min-w-[600px] w-full blur-fade-in origin-top font-poppins"}>
+    <div className={"flex flex-col gap-8 min-w-[min(600px, 100vw)] w-full blur-fade-in origin-top"}>
       <ContextBox>
         <ul className={"flex flex-col gap-6 border-l-2 border-[var(--secondary-bg)] pl-10"}>
           <li className={"relative h-15"}>
