@@ -1,3 +1,8 @@
+:root {
+    --animate-duration: 200ms;
+    --popup-duration: 300ms;
+}
+
 @keyframes onScreenAppearance {
     from {
         opacity: 0;
@@ -47,19 +52,40 @@
     }
 }
 
+@keyframes zoomIn-from-center {
+    0% {
+        scale: 0.3;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.animate-zoom-from-center {
+    animation: zoomIn-from-center var(--animate-duration) ease forwards;
+}
+
 .blur-fade-in {
-    animation: blurFadeIn 0.25s ease forwards;
+    animation: blurFadeIn var(--animate-duration) ease forwards;
 }
 
 .animate-left-to-right {
-    animation: fadeIn-from-left 0.25s ease-in-out;
+    animation: fadeIn-from-left var(--animate-duration) ease-in-out;
 }
 
 .animate-right-to-left {
-    animation: fadeIn-from-right 0.25s ease-in-out;
+    animation: fadeIn-from-right var(--animate-duration) ease-in-out;
 }
 
 .animate-on-screen {
-    animation: onScreenAppearance 0.25s ease-in-out;
+    animation: onScreenAppearance var(--animate-duration) ease-in-out;
     transform-origin: center;
+}
+
+.animate-original-to-center {
+    will-change: left, top, width, height, transform, opacity;
+    transition: all var(--popup-duration) ease-out, opacity var(--popup-duration) ease-in;
 }

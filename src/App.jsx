@@ -13,7 +13,7 @@ function App() {
     {name: "Projects", element: <Projects/>},
   ]
 
-  const [activeTabIndex, setActiveTabIndex] = useState(0)
+  const [activeTabIndex, setActiveTabIndex] = useState(2)
 
   return (
     <div className="flex flex-col font-mono p-8 gap-8 lg:flex-row">
