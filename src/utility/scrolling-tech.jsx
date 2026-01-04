@@ -80,7 +80,7 @@ const TechStack = ({ project }) => {
         {project.tech.map((tech, i) => (
           <p
             key={i}
-            className="bg-[var(--secondary-bg)] px-3 py-2 rounded-full border border-[var(--gray-text)] group-hover:border-blue-400 transition-colors duration-300"
+            className="bg-[var(--secondary-bg)] px-3 py-2 rounded-full border border-[var(--card-border)] group-hover:border-[var(--accent-primary)] transition-colors duration-300"
           >
             {tech}
           </p>

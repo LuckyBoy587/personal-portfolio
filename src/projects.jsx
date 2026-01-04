@@ -9,7 +9,7 @@ const ProjectCard = ({ project, onClick, haveHoverEffect = true }) => {
   const baseGithubUrl = "https://github.com/LuckyBoy587/";
   return (
     <div
-      className={`relative h-full bg-[var(--primary-bg)] rounded-2xl shadow-lg ${haveHoverEffect && "hover:scale-105 hover:shadow-2xl hover:cursor-pointer transition-all duration-150 group"}`}
+      className={`relative h-full rounded-2xl glass-card ${haveHoverEffect && "hover:scale-105 glow-hover hover:cursor-pointer transition-all duration-300 group"}`}
       onClick={(event) => {
         event.stopPropagation();
         onClick(event);
@@ -24,7 +24,7 @@ const ProjectCard = ({ project, onClick, haveHoverEffect = true }) => {
         />
       </div>
       <div className="flex flex-col p-4 justify-between text-[var(--gray-text)]">
-        <h2 className="text-xl font-bold text-[var(--bright-text)] group-hover:text-blue-400 transition-colors duration-300">
+        <h2 className="text-xl font-bold text-[var(--bright-text)] group-hover:text-[var(--accent-primary)] transition-colors duration-300">
           {project.title}
         </h2>
         <p className="mb-4 line-clamp-3 min-h-[4.5rem]">{project.description}</p>
@@ -91,7 +91,7 @@ const PopUpProjectCard = ({ project, onOutOfBoundsClick }) => {
 
   return (
     <div className="fixed inset-0 z-100">
-      <div className="fixed w-full h-full bg-[var(--primary-bg)]/50 backdrop-blur-md"></div>
+      <div className="fixed w-full h-full bg-[var(--window-bg)]/70 backdrop-blur-lg"></div>
       <div className="fixed h-full w-full">
         <div
           id={POPUP_ID}
@@ -106,7 +106,7 @@ const PopUpProjectCard = ({ project, onOutOfBoundsClick }) => {
             transition: "all 0.3s ease-in-out",
           }}
         >
-          <ProjectCard project={project} haveHoverEffect={false} onClick={() => {}} />
+          <ProjectCard project={project} haveHoverEffect={false} onClick={() => { }} />
         </div>
       </div>
     </div>

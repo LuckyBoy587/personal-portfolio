@@ -16,7 +16,7 @@ function App() {
   const [activeTabIndex, setActiveTabIndex] = useState(2)
 
   return (
-    <div className="flex flex-col font-mono p-8 gap-8 lg:flex-row">
+    <div className="flex flex-col p-8 gap-8 lg:flex-row" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Branding/>
       <div className={"flex flex-col gap-8 w-full"}>
         <div className={"flex w-full"}>
