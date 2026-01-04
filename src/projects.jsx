@@ -1,4 +1,4 @@
-import projects from "../public/projects.json";
+import projects from "./projects.json";
 import placeholder from "/placeholder.png";
 import TechStack from "./utility/scrolling-tech.jsx";
 import { useEffect, useState } from "react";
