@@ -2,15 +2,15 @@ import { useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
 const springValues = {
-  damping: 30,
-  stiffness: 100,
-  mass: 2
+  damping: 10,
+  stiffness: 150,
+  mass: 1
 };
 
 const CONFIG = {
   containerWidth: '100%',
   scaleOnHover: 1.1,
-  rotateAmplitude: 14,
+  rotateAmplitude: 4,
   showMobileWarning: true
 };
 
@@ -21,7 +21,7 @@ export default function TiltedCard({ children }) {
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);
-  const opacity = useSpring(0);
+  const opacity = useSpring(0, springValues);
 
   function handleMouse(e) {
     if (!ref.current) return;
@@ -57,7 +57,6 @@ export default function TiltedCard({ children }) {
       ref={ref}
       className="relative w-full h-full [perspective:800px] flex flex-col items-center justify-center"
       style={{
-        height: CONFIG.containerHeight,
         width: CONFIG.containerWidth
       }}
       onMouseMove={handleMouse}

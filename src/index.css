@@ -8,8 +8,8 @@ body {
     margin: 0;
     padding: 0;
     background:
-        radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 0%, rgb(from var(--accent-secondary) r g b / 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgb(from var(--accent-primary) r g b / 0.1) 0%, transparent 40%),
         var(--window-bg);
     min-height: 100vh;
 }
@@ -56,7 +56,7 @@ body {
     border: 1px solid var(--card-border);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(138, 92, 246, 0.05) inset;
+        0 0 0 1px rgb(from var(--card-border) r g b / 0.33) inset;
 }
 
 /* Subtle glow on hover for interactive elements */
@@ -138,6 +138,23 @@ body {
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+
+    /* Legacy color mappings */
+    --color-window-bg: var(--window-bg);
+    --color-primary-bg: var(--primary-bg);
+    --color-secondary-bg: var(--secondary-bg);
+    --color-card-bg: var(--card-bg);
+    --color-card-border: var(--card-border);
+    --color-primary-text: var(--primary-text);
+    --color-secondary-text: var(--secondary-text);
+    --color-bright-text: var(--bright-text);
+    --color-gray-text: var(--gray-text);
+    --color-accent-primary: var(--accent-primary);
+    --color-accent-secondary: var(--accent-secondary);
+    --color-accent-glow: var(--accent-glow);
+    --color-arrow-bg: var(--arrow-bg);
+    --color-arrow-hover-bg: var(--arrow-hover-bg);
+    --image-profile-pic-gradient: var(--profile-pic-gradient);
 }
 
 :root {
@@ -173,6 +190,23 @@ body {
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+    /* Legacy colors migrated from colors.css */
+    --window-bg: #0a0a12;
+    --primary-bg: #12121a;
+    --secondary-bg: #1a1a28;
+    --card-bg: rgba(20, 20, 35, 0.7);
+    --card-border: rgba(138, 92, 246, 0.15);
+    --primary-text: #f0f0f5;
+    --secondary-text: #a855f7;
+    --bright-text: #f5f5fa;
+    --gray-text: hsla(250, 20%, 75%, 0.7);
+    --accent-primary: #a855f7;
+    --accent-secondary: #6366f1;
+    --accent-glow: rgba(168, 85, 247, 0.4);
+    --profile-pic-gradient: linear-gradient(135deg, rgba(30, 30, 50, 1) 0%, rgba(10, 10, 18, 1) 100%);
+    --arrow-bg: rgba(168, 85, 247, 0.1);
+    --arrow-hover-bg: rgba(168, 85, 247, 0.3);
 }
 
 .dark {
@@ -210,15 +244,17 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }
 
-::view-transition-old(root), ::view-transition-new(root) {
+::view-transition-old(root),
+::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
 }

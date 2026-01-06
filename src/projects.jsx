@@ -5,11 +5,10 @@ import TiltedCard from "./component/TiltedCard.jsx";
 
 function Projects() {
   return (
-    <div className="p-10 text-white">
+    <div className="p-h-10 text-white">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <TiltedCard key={index}>
-            <div className="relative flex flex-col rounded-2xl bg-[var(--card-bg)]/60 backdrop-blur-md border border-white/10 overflow-hidden">
+            <div key={index} className="relative flex flex-col rounded-2xl bg-[var(--card-bg)]/60 backdrop-blur-md border border-white/10 overflow-hidden">
               <div className="w-full aspect-video overflow-hidden">
                 <img
                   src={project.image ? `${import.meta.env.BASE_URL}${project.image}` : placeholder}
@@ -49,7 +48,6 @@ function Projects() {
                 </div>
               </div>
             </div>
-          </TiltedCard>
         ))}
       </div>
     </div>

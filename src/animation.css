@@ -72,12 +72,12 @@
 @keyframes glowEmergence {
     0% {
         opacity: 0;
-        box-shadow: 0 0 0 rgba(168, 85, 247, 0);
+        box-shadow: 0 0 0 rgb(from var(--accent-primary) r g b / 0);
     }
 
     100% {
         opacity: 1;
-        box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+        box-shadow: 0 0 25px rgb(from var(--accent-primary) r g b / 0.2);
     }
 }
 
