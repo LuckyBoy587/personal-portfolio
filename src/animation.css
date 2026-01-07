@@ -8,7 +8,8 @@
 @keyframes onScreenAppearance {
     from {
         opacity: 0;
-        transform: scale(1.05);
+        transform: scale(1.02);
+        /* Reduced scale for performance */
     }
 
     to {
@@ -20,7 +21,8 @@
 @keyframes fadeIn-from-left {
     from {
         opacity: 0;
-        transform: translateX(-60px);
+        transform: translateX(-30px);
+        /* Reduced distance */
     }
 
     to {
@@ -32,7 +34,8 @@
 @keyframes fadeIn-from-right {
     from {
         opacity: 0;
-        transform: translateX(60px);
+        transform: translateX(30px);
+        /* Reduced distance */
     }
 
     to {
@@ -41,24 +44,25 @@
     }
 }
 
-/* Soft blur fade-in with vertical slide */
+/* Simplified fade-in - Removed blur for GPU performance */
 @keyframes blurFadeIn {
     0% {
         opacity: 0;
-        filter: blur(10px);
-        transform: translateY(15px);
+        /* Removed filter: blur for GPU performance */
+        transform: translateY(10px);
     }
 
     100% {
         opacity: 1;
-        filter: blur(0);
+        /* Removed filter: blur for GPU performance */
         transform: translateY(0);
     }
 }
 
 @keyframes zoomIn-from-center {
     0% {
-        scale: 0.9;
+        scale: 0.95;
+        /* Increased start scale */
         opacity: 0;
     }
 
@@ -68,16 +72,16 @@
     }
 }
 
-/* Glow emergence animation for ambient effects */
+/* Simplified emergence - Removed box-shadow for GPU performance */
 @keyframes glowEmergence {
     0% {
         opacity: 0;
-        box-shadow: 0 0 0 rgb(from var(--accent-primary) r g b / 0);
+        /* Removed box-shadow animation for GPU performance */
     }
 
     100% {
         opacity: 1;
-        box-shadow: 0 0 25px rgb(from var(--accent-primary) r g b / 0.2);
+        /* Removed box-shadow animation for GPU performance */
     }
 }
 
@@ -107,6 +111,7 @@
 }
 
 .animate-original-to-center {
-    will-change: left, top, width, height, transform, opacity;
-    transition: all var(--popup-duration) var(--ease-smooth), opacity var(--popup-duration) ease-in;
+    /* Removed extensive will-change list to avoid GPU memory bloat */
+    will-change: transform, opacity;
+    transition: transform var(--popup-duration) var(--ease-smooth), opacity var(--popup-duration) ease-in;
 }

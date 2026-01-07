@@ -6,15 +6,15 @@ import { cn } from "@/lib/utils"
 
 export const AnimatedThemeToggler = ({
   className,
-  duration = 400,
+  duration = 500,
   ...props
 }) => {
-  const [isDark, setIsDark] = useState(false)
+  const [isLight, setIsLight] = useState(false)
   const buttonRef = useRef(null)
 
   useEffect(() => {
     const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"))
+      setIsLight(document.documentElement.classList.contains("light"))
     }
 
     updateTheme()
@@ -31,12 +31,18 @@ export const AnimatedThemeToggler = ({
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return
 
+    if (!document.startViewTransition) {
+      document.documentElement.classList.toggle("light")
+      localStorage.setItem("theme", !isLight ? "light" : "dark")
+      return
+    }
+
     await document.startViewTransition(() => {
       flushSync(() => {
-        const newTheme = !isDark
-        setIsDark(newTheme)
-        document.documentElement.classList.toggle("dark")
-        localStorage.setItem("theme", newTheme ? "dark" : "light")
+        const newLightState = !isLight
+        setIsLight(newLightState)
+        document.documentElement.classList.toggle("light")
+        localStorage.setItem("theme", newLightState ? "light" : "dark")
       })
     }).ready
 
@@ -59,15 +65,15 @@ export const AnimatedThemeToggler = ({
       easing: "ease-in-out",
       pseudoElement: "::view-transition-new(root)",
     })
-  }, [isDark, duration])
+  }, [isLight, duration])
 
   return (
     <button
       ref={buttonRef}
       onClick={toggleTheme}
-      className={cn(className)}
+      className={cn("fixed top-3 right-3 z-50 p-3 rounded-full glass-card hover:scale-110 transition-all duration-300", className)}
       {...props}>
-      {isDark ? <Sun /> : <Moon />}
+      {isLight ? <Moon className="w-6 h-6 text-[#1e1b4b]" /> : <Sun className="w-6 h-6 text-yellow-400" />}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

@@ -1,17 +1,33 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
-/* Page background with radial ambient glow */
+/* Page background with simplified colors - Removed for GPU performance */
 body {
     margin: 0;
     padding: 0;
-    background:
-        radial-gradient(ellipse at 50% 0%, rgb(from var(--accent-secondary) r g b / 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 100%, rgb(from var(--accent-primary) r g b / 0.1) 0%, transparent 40%),
-        var(--window-bg);
+    /* Removed heavy radial-gradients for GPU performance */
+    background: var(--window-bg);
     min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+    font-family: var(--body-font, 'Open Sans', sans-serif);
+    min-height: 100vh;
+    background-color: var(--window-bg); /* deep dark purple */
+    background-image:
+      radial-gradient(var(--accent-glow) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-font {
+    font-family: var(--heading-font, 'Playfair Display', serif);
 }
 
 /* Custom scrollbar with purple accent */
@@ -29,12 +45,12 @@ body {
     box-shadow: inset 0 0 0 2px var(--accent-secondary);
     background-clip: padding-box;
     border: 2px solid transparent;
-    transition: all 0.4s ease;
+    transition: background 0.4s ease; /* Removed 'all' for performance */
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-primary);
-    box-shadow: 0 0 12px var(--accent-glow);
+    /* Removed box-shadow glow for GPU performance */
 }
 
 /* Hide scrollbar utility */
@@ -48,37 +64,36 @@ body {
     display: none;
 }
 
-/* Glassmorphism card styling */
+/* Glassmorphism card styling - Simplified for GPU performance */
 .glass-card {
     background: var(--card-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Removed backdrop-filter: blur for GPU performance */
     border: 1px solid var(--card-border);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgb(from var(--card-border) r g b / 0.33) inset;
+    /* Simplified box-shadow for GPU performance */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Subtle glow on hover for interactive elements */
+/* Subtle glow on hover for interactive elements - Removed for GPU performance */
 .glow-hover {
-    transition: box-shadow 0.4s ease, transform 0.3s ease;
+    transition: transform 0.3s ease; /* Removed box-shadow transition */
 }
 
 .glow-hover:hover {
-    box-shadow: 0 0 20px var(--accent-glow), 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Removed box-shadow glow for GPU performance */
+    transform: translateY(-2px);
 }
 
-/* Icon container styling with glow */
+/* Icon container styling with glow - Simplified for GPU performance */
 .icon-container {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease; /* Removed box-shadow transition */
 }
 
 .icon-container:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px var(--accent-glow);
+    transform: scale(1.05); /* Reduced scale */
+    /* Removed box-shadow glow for GPU performance */
 }
 
-/* Scroll container animations */
+/* Scroll container animations - Removed for GPU performance */
 .scroll-container {
     overflow: hidden;
     width: 100%;
@@ -86,16 +101,18 @@ body {
 
 .scroll-container .flex {
     display: inline-flex;
-    animation: scroll 2s linear infinite alternate;
+    /* Removed infinite scroll animation for GPU performance */
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-100%));
+/* Global performance-safe strategy: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -207,6 +224,10 @@ body {
     --profile-pic-gradient: linear-gradient(135deg, rgba(30, 30, 50, 1) 0%, rgba(10, 10, 18, 1) 100%);
     --arrow-bg: rgba(168, 85, 247, 0.1);
     --arrow-hover-bg: rgba(168, 85, 247, 0.3);
+
+    /* Font variables */
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Open Sans', sans-serif;
 }
 
 .dark {
@@ -241,6 +262,24 @@ body {
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+}
+
+.light {
+    --window-bg: #f5f3ff00;
+    --primary-bg: #ffffff;
+    --secondary-bg: #ede9fe;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(168, 85, 247, 0.3);
+    --primary-text: #1e1b4b;
+    --secondary-text: #7c3aed;
+    --bright-text: #000000;
+    --gray-text: #4b5563;
+    --accent-primary: #a855f7;
+    --accent-secondary: #6366f1;
+    --accent-glow: rgba(168, 85, 247, 0.2);
+    --profile-pic-gradient: linear-gradient(135deg, #ffffff 0%, #ebe2ff 100%);
+    --arrow-bg: rgba(168, 85, 247, 0.1);
+    --arrow-hover-bg: rgba(168, 85, 247, 0.2);
 }
 
 @layer base {

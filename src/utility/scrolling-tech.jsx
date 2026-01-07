@@ -52,7 +52,8 @@ const TechStack = ({ project }) => {
       {/* Left Arrow - Conditionally Rendered and Hidden by default */}
       <button
         onClick={() => scroll('left')}
-        className={`absolute left-0 z-10 p-1.5 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollLeft && 'pointer-events-none !opacity-0'}`}
+        /* Removed backdrop-blur-sm for GPU performance */
+        className={`absolute left-0 z-10 p-1.5 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] text-[var(--secondary-text)] rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollLeft && 'pointer-events-none !opacity-0'}`}
         aria-label="Scroll left"
       >
         <svg
@@ -79,7 +80,7 @@ const TechStack = ({ project }) => {
         {project.tech.map((tech, i) => (
           <span
             key={i}
-            className="bg-white/5 px-2 py-0.5 rounded-md border border-white/10 hover:border-[var(--accent-primary)]/50 hover:bg-white/10 transition-all duration-300 cursor-default"
+            className="bg-[var(--secondary-bg)] text-[var(--primary-text)] px-2 py-0.5 rounded-md border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 hover:bg-[var(--accent-glow)] transition-all duration-300 cursor-default"
           >
             {tech}
           </span>
@@ -90,7 +91,8 @@ const TechStack = ({ project }) => {
       {/* Right Arrow - Conditionally Rendered and Hidden by default */}
       <button
         onClick={() => scroll('right')}
-        className={`absolute right-0 z-10 p-1.5 bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollRight && 'pointer-events-none !opacity-0'}`}
+        /* Removed backdrop-blur-sm for GPU performance */
+        className={`absolute right-0 z-10 p-1.5 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] text-[var(--secondary-text)] rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollRight && 'pointer-events-none !opacity-0'}`}
         aria-label="Scroll right"
       >
         <svg
