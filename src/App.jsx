@@ -23,11 +23,11 @@ function App() {
       <AnimatedThemeToggler />
 
 
-      <div className="flex flex-col lg:sticky lg:top-0 lg:h-screen lg:justify-center py-4 sm:py-8">
+      {/* <div className="flex flex-col lg:sticky lg:top-0 lg:h-screen lg:justify-center py-4 sm:py-8">
         <Branding />
-      </div>
-      <div className={"flex flex-col gap-8 w-full py-8"}>
-        <div className={"flex w-full flex-col gap-4"}>
+      </div> */}
+      <div className={"flex flex-col gap-8 w-full py-8 relative items-center"}>
+        <div className={"flex w-3/4 flex-col gap-4 sticky top-8 z-2"}>
           <Navbar navTabs={navTabs} setActiveTabIndex={setActiveTabIndex} selectedIndex={activeTabIndex} />
         </div>
         <div>

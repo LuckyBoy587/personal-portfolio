@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import ContextBox from "./utility/context-box.jsx";
 import TextType from "./components/TextType.jsx";
 import ShinyText from "./components/ShinyText.jsx";
+import Branding from "./Branding.jsx";
 
 const AboutMe = () => {
   const containerVariants = {
@@ -29,6 +30,7 @@ const AboutMe = () => {
 
   return (
     <div className={"flex flex-col gap-8 min-w-[min(600px, 100vw)] blur-fade-in origin-top"}>
+      <Branding />
       <ContextBox>
         <div className="flex items-center gap-5 group mb-4">
           <div

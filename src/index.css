@@ -14,9 +14,10 @@ body {
     transition: background 0.5s ease, color 0.5s ease;
     font-family: var(--body-font, 'Open Sans', sans-serif);
     min-height: 100vh;
-    background-color: var(--window-bg); /* deep dark purple */
+    background-color: var(--window-bg);
+    /* deep dark purple */
     background-image:
-      radial-gradient(var(--accent-glow) 1px, transparent 1px);
+        radial-gradient(var(--accent-glow) 1px, transparent 1px);
     background-size: 24px 24px;
 }
 
@@ -45,7 +46,8 @@ h6,
     box-shadow: inset 0 0 0 2px var(--accent-secondary);
     background-clip: padding-box;
     border: 2px solid transparent;
-    transition: background 0.4s ease; /* Removed 'all' for performance */
+    transition: background 0.4s ease;
+    /* Removed 'all' for performance */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -64,18 +66,48 @@ h6,
     display: none;
 }
 
-/* Glassmorphism card styling - Simplified for GPU performance */
+/* Glassmorphism card styling */
+/* Performance-optimized glass-card: Removed backdrop-filter (blur) to save GPU */
 .glass-card {
     background: var(--card-bg);
-    /* Removed backdrop-filter: blur for GPU performance */
+    /* Use slightly higher opacity background defined in theme */
     border: 1px solid var(--card-border);
-    /* Simplified box-shadow for GPU performance */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Reduced shadow size for performance */
+    /* Use transitions instead of filter animations */
+    transition: transform 0.3s ease, background 0.3s ease;
+    will-change: transform;
+}
+
+/* Solid card without blur for performance */
+.solid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Top mask to make content appear translucent as it scrolls above the navbar */
+.sticky-top-fade {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    /* Large enough to cover the gap and provide a smooth transition */
+    background: linear-gradient(to bottom,
+            var(--window-bg) 0%,
+            var(--window-bg) 20%,
+            transparent 100%);
+    z-index: 45;
+    pointer-events: none;
+    margin-bottom: -5rem;
+    /* Offset the height so it doesn't push content down */
 }
 
 /* Subtle glow on hover for interactive elements - Removed for GPU performance */
 .glow-hover {
-    transition: transform 0.3s ease; /* Removed box-shadow transition */
+    transition: transform 0.3s ease;
+    /* Removed box-shadow transition */
 }
 
 .glow-hover:hover {
@@ -85,11 +117,13 @@ h6,
 
 /* Icon container styling with glow - Simplified for GPU performance */
 .icon-container {
-    transition: transform 0.3s ease; /* Removed box-shadow transition */
+    transition: transform 0.3s ease;
+    /* Removed box-shadow transition */
 }
 
 .icon-container:hover {
-    transform: scale(1.05); /* Reduced scale */
+    transform: scale(1.05);
+    /* Reduced scale */
     /* Removed box-shadow glow for GPU performance */
 }
 
@@ -106,6 +140,7 @@ h6,
 
 /* Global performance-safe strategy: prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     ::before,
     ::after {
@@ -212,7 +247,8 @@ h6,
     --window-bg: #0a0a12;
     --primary-bg: #12121a;
     --secondary-bg: #1a1a28;
-    --card-bg: rgba(20, 20, 35, 0.7);
+    --card-bg: rgba(20, 20, 35, 0.9);
+    /* Increased opacity for visibility without blur */
     --card-border: rgba(138, 92, 246, 0.15);
     --primary-text: #f0f0f5;
     --secondary-text: #a855f7;
@@ -268,7 +304,8 @@ h6,
     --window-bg: #f5f3ff00;
     --primary-bg: #ffffff;
     --secondary-bg: #ede9fe;
-    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    /* Increased opacity for visibility without blur */
     --card-border: rgba(168, 85, 247, 0.3);
     --primary-text: #1e1b4b;
     --secondary-text: #7c3aed;
