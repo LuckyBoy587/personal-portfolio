@@ -1,12 +1,15 @@
 :root {
-    --animate-duration: 200ms;
-    --popup-duration: 300ms;
+    --animate-duration: 400ms;
+    --popup-duration: 350ms;
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Slow, fluid entrance animation */
 @keyframes onScreenAppearance {
     from {
         opacity: 0;
-        transform: scale(1.2);
+        transform: scale(1.02);
+        /* Reduced scale for performance */
     }
 
     to {
@@ -18,7 +21,8 @@
 @keyframes fadeIn-from-left {
     from {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-30px);
+        /* Reduced distance */
     }
 
     to {
@@ -30,7 +34,8 @@
 @keyframes fadeIn-from-right {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(30px);
+        /* Reduced distance */
     }
 
     to {
@@ -39,22 +44,25 @@
     }
 }
 
+/* Simplified fade-in - Removed blur for GPU performance */
 @keyframes blurFadeIn {
     0% {
         opacity: 0;
-        filter: blur(8px);
+        /* Removed filter: blur for GPU performance */
         transform: translateY(10px);
     }
+
     100% {
         opacity: 1;
-        filter: blur(0);
+        /* Removed filter: blur for GPU performance */
         transform: translateY(0);
     }
 }
 
 @keyframes zoomIn-from-center {
     0% {
-        scale: 0.3;
+        scale: 0.95;
+        /* Increased start scale */
         opacity: 0;
     }
 
@@ -64,28 +72,46 @@
     }
 }
 
+/* Simplified emergence - Removed box-shadow for GPU performance */
+@keyframes glowEmergence {
+    0% {
+        opacity: 0;
+        /* Removed box-shadow animation for GPU performance */
+    }
+
+    100% {
+        opacity: 1;
+        /* Removed box-shadow animation for GPU performance */
+    }
+}
+
 .animate-zoom-from-center {
-    animation: zoomIn-from-center var(--animate-duration) ease forwards;
+    animation: zoomIn-from-center var(--animate-duration) var(--ease-smooth) forwards;
 }
 
 .blur-fade-in {
-    animation: blurFadeIn var(--animate-duration) ease forwards;
+    animation: blurFadeIn var(--animate-duration) var(--ease-smooth) forwards;
 }
 
 .animate-left-to-right {
-    animation: fadeIn-from-left var(--animate-duration) ease-in-out;
+    animation: fadeIn-from-left var(--animate-duration) var(--ease-smooth);
 }
 
 .animate-right-to-left {
-    animation: fadeIn-from-right var(--animate-duration) ease-in-out;
+    animation: fadeIn-from-right var(--animate-duration) var(--ease-smooth);
 }
 
 .animate-on-screen {
-    animation: onScreenAppearance var(--animate-duration) ease-in-out;
+    animation: onScreenAppearance var(--animate-duration) var(--ease-smooth);
     transform-origin: center;
 }
 
+.animate-glow-emergence {
+    animation: glowEmergence var(--animate-duration) var(--ease-smooth) forwards;
+}
+
 .animate-original-to-center {
-    will-change: left, top, width, height, transform, opacity;
-    transition: all var(--popup-duration) ease-out, opacity var(--popup-duration) ease-in;
+    /* Removed extensive will-change list to avoid GPU memory bloat */
+    will-change: transform, opacity;
+    transition: transform var(--popup-duration) var(--ease-smooth), opacity var(--popup-duration) ease-in;
 }

@@ -1,160 +1,197 @@
 import * as React from 'react';
+import { motion } from 'framer-motion';
 import ContextBox from "./utility/context-box.jsx";
 
-const Resume = () => {
-  return (
-    <div className={"flex flex-col gap-8 min-w-[min(600px, 100vw)] w-full blur-fade-in origin-top"}>
-      <ContextBox>
-        <ul className={"flex flex-col gap-6 border-l-2 border-[var(--secondary-bg)] pl-10"}>
-          <li className={"relative h-15"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-book"></i>
-            </div>
-            <div className={"flex items-center h-fit"}>
-              <p className={"text-[var(--bright-text)] text-4xl"}>Education</p>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-graduation-cap"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>B.Tech in Information Technology</p>
-              <p className={"text-[var(--gray-text)]"}>Sri Krishna College of Engineering and Technology, Coimbatore</p>
-              <p className={"text-[var(--gray-text)]"}>2023 - 2027</p>
-              <p className={"text-[var(--gray-text)]"}>CGPA: 8.29</p>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-school-flag"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>Senior Secondary (Class XII), CBSE</p>
-              <p className={"text-[var(--gray-text)]"}>Everest KenBridge Senior Secondary School (EKBS),
-                Mayiladuthurai</p>
-              <p className={"text-[var(--gray-text)]"}>2022 - 2023</p>
-              <p className={"text-[var(--gray-text)]"}>Percentage: 95%</p>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-school-flag"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>Secondary (Class X), CBSE</p>
-              <p className={"text-[var(--gray-text)]"}>Everest KenBridge Senior Secondary School (EKBS),
-                Mayiladuthurai</p>
-              <p className={"text-[var(--gray-text)]"}>2020 - 2021</p>
-              <p className={"text-[var(--gray-text)]"}>Percentage: 95%</p>
-            </div>
-          </li>
-        </ul>
-      </ContextBox>
-      <ContextBox>
-        <ul className={"flex flex-col gap-6 border-l-2 border-[var(--secondary-bg)] pl-10"}>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-terminal"></i>
-            </div>
-            <div className={"flex items-center h-fit"}>
-              <p className={"text-[var(--bright-text)] text-4xl"}>Technical Skills</p>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-laptop-code"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>Languages</p>
-              <div className={"grid grid-cols-2"}>
-                <div>
-                  <p className={"text-[var(--gray-text)]"}>C++</p>
-                  <p className={"text-[var(--gray-text)]"}>Python</p>
-                  <p className={"text-[var(--gray-text)]"}>Java</p>
-                  <p className={"text-[var(--gray-text)]"}>Kotlin</p>
-                </div>
-                <div>
-                  <p className={"text-[var(--gray-text)]"}>HTML</p>
-                  <p className={"text-[var(--gray-text)]"}>CSS</p>
-                  <p className={"text-[var(--gray-text)]"}>JavaScript</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-folder-tree"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>Frameworks / Libraries</p>
-              <div className={"grid grid-cols-2"}>
-                <div>
-                  <p className={"text-[var(--gray-text)]"}>React</p>
-                  <p className={"text-[var(--gray-text)]"}>Spring Boot</p>
-                  <p className={"text-[var(--gray-text)]"}>Tailwind CSS</p>
-                </div><div>
-                  <p className={"text-[var(--gray-text)]"}>Tensorflow</p>
-                  <p className={"text-[var(--gray-text)]"}>Keras</p>
-                  <p className={"text-[var(--gray-text)]"}>OpenCV</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li className={"relative"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-database"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--bright-text)] text-2xl"}>Databases</p>
-              <p className={"text-[var(--gray-text)]"}>MySQL</p>
-              <p className={"text-[var(--gray-text)]"}>Mongo DB</p>
-            </div>
-          </li>
-        </ul>
-      </ContextBox>
-      <ContextBox>
-        <ul className={"flex flex-col gap-6 border-l-2 border-[var(--secondary-bg)] pl-10"}>
-          <li className={"relative h-15"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-book"></i>
-            </div>
-            <div className={"flex items-center h-fit"}>
-              <p className={"text-[var(--bright-text)] text-4xl"}>Achievements</p>
-            </div>
-          </li>
-          <li className={"relative flex items-center"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-fire-flame-curved"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--gray-text)] text-xl"}>Solved 800+ problems on Leetcode</p>
-            </div>
-          </li>
-          <li className={"relative flex items-center"}>
-            <div
-              className={"absolute w-10 h-10 flex items-center justify-center -left-10 -translate-x-1/2 bg-[var(--primary-bg)] text-[var(--secondary-text)] text-xl  border border-[var(--secondary-bg)] rounded-xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform hover:scale-110"}>
-              <i className="fa-solid fa-school-flag"></i>
-            </div>
-            <div className={"flex flex-col"}>
-              <p className={"text-[var(--gray-text)] text-xl"}>Built 20+ coding projects across web, AI, and app development.</p>
-            </div>
-          </li>
-        </ul>
-      </ContextBox>
+/**
+ * Modern Skill Badge with hover effects and subtle styling
+ */
+const SkillBadge = ({ name }) => (
+  <motion.span
+    whileHover={{ scale: 1.05, y: -2 }}
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    className="px-3 py-1.5 rounded-lg bg-secondary-bg/40 border border-card-border text-gray-text text-sm hover:text-bright-text hover:border-accent-secondary/40 hover:bg-secondary-bg/60 transition-all duration-300 cursor-default"
+  >
+    {name}
+  </motion.span>
+);
 
+/**
+ * Timeline icon for individual resume items
+ */
+const TimelineIcon = ({ icon }) => (
+  <div className="absolute w-10 h-10 flex items-center justify-center -left-6 -translate-x-1/2 bg-primary-bg text-accent-secondary border border-card-border rounded-xl shadow-lg z-10 transition-all duration-300">
+    <i className={icon || "fa-solid fa-circle-dot"}></i>
+  </div>
+);
+
+/**
+ * A modern container for resume sections (Education, Skills, etc.)
+ */
+const ResumeSection = ({ icon, title, children }) => (
+  <ContextBox>
+    <div className="flex flex-col w-full">
+      <div className="flex items-center gap-4 mb-10">
+        <div className="w-12 h-12 flex items-center justify-center bg-secondary-bg border border-card-border rounded-2xl text-accent-secondary text-2xl shadow-inner">
+          <i className={icon}></i>
+        </div>
+        <h2 className="text-3xl font-bold text-bright-text heading-font tracking-tight">{title}</h2>
+      </div>
+      <div className="relative flex flex-col gap-4 ml-6">
+        {/* Vertical Timeline Divider */}
+        <div className="absolute left-0 top-0 bottom-4 w-[2px] bg-linear-to-b from-accent-secondary/40 via-secondary-bg/50 to-transparent -translate-x-6" />
+        {children}
+      </div>
     </div>
-  )
-}
+  </ContextBox>
+);
+
+/**
+ * Individual entry in the resume (Work/Education)
+ */
+const ResumeItem = ({ title, subtitle, date, description, icon, children, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -10 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay }}
+    className="relative pb-10 last:pb-2 group"
+  >
+    <TimelineIcon icon={icon} />
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+        <h3 className="text-xl font-bold text-bright-text hover:text-accent-secondary transition-colors duration-300">{title}</h3>
+        <span className="text-xs font-semibold uppercase tracking-wider text-accent-secondary bg-accent-secondary/5 border border-accent-secondary/20 px-3 py-1 rounded-full w-fit">
+          {date}
+        </span>
+      </div>
+      {subtitle && <p className="text-gray-text/90 font-medium text-sm">{subtitle}</p>}
+      {description && <p className="text-gray-text text-sm leading-relaxed max-w-2xl">{description}</p>}
+      {children}
+    </div>
+  </motion.div>
+);
+
+const Resume = () => {
+  const education = [
+    {
+      icon: "fa-solid fa-graduation-cap",
+      title: "B.Tech in Information Technology",
+      subtitle: "Sri Krishna College of Engineering and Technology, Coimbatore",
+      date: "2023 — 2027",
+      description: "Focusing on software engineering, data structures, and advanced computing. Maintaining a strong academic record.",
+      extra: "CGPA: 8.29"
+    },
+    {
+      icon: "fa-solid fa-school",
+      title: "Senior Secondary (Class XII), CBSE",
+      subtitle: "Everest KenBridge Senior Secondary School, Mayiladuthurai",
+      date: "2022 — 2023",
+      description: "Completed secondary education with Excellence in Mathematics and Computer Science.",
+      extra: "Percentage: 95%"
+    },
+    {
+      icon: "fa-solid fa-building-columns",
+      title: "Secondary (Class X), CBSE",
+      subtitle: "Everest KenBridge Senior Secondary School, Mayiladuthurai",
+      date: "2020 — 2021",
+      description: "Foundational education with consistently high performance across all subjects.",
+      extra: "Percentage: 95%"
+    },
+  ];
+
+  const technicalSkills = [
+    {
+      icon: "fa-solid fa-code",
+      title: "Languages",
+      skills: ["C++", "Python", "Java", "Kotlin", "HTML5", "CSS3", "JavaScript (ES6+)"]
+    },
+    {
+      icon: "fa-solid fa-layer-group",
+      title: "Frameworks & Libraries",
+      skills: ["React.js", "Spring Boot", "Tailwind CSS", "Tensorflow", "Keras", "OpenCV", "Framer Motion"]
+    },
+    {
+      icon: "fa-solid fa-server",
+      title: "Infrastructure & Tools",
+      skills: ["MySQL", "MongoDB", "Git", "Docker", "Vite", "Firebase", "Postman"]
+    },
+  ];
+
+  const achievements = [
+    {
+      icon: "fa-solid fa-trophy",
+      title: "Competitive Programming",
+      date: "Ongoing",
+      description: "Actively solving complex algorithmic challenges. Successfully solved over 1000+ problems on Leetcode, ranking in the top percentiles."
+    },
+    {
+      icon: "fa-solid fa-diagram-project",
+      title: "Portfolio Development",
+      date: "2023 — Present",
+      description: "Developed and deployed 20+ diverse projects ranging from web applications and AI models to cross-platform mobile apps."
+    },
+  ];
+
+  return (
+    <div className="flex flex-col gap-10 min-w-[min(600px, 100vw)] w-full blur-fade-in origin-top">
+      {/* Education Section */}
+      <ResumeSection icon="fa-solid fa-book-open" title="Education">
+        {education.map((item, index) => (
+          <ResumeItem
+            key={index}
+            {...item}
+            delay={index * 0.1}
+          >
+            {item.extra && (
+              <div className="mt-2 flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-accent-secondary" />
+                <span className="text-bright-text font-bold text-sm">{item.extra}</span>
+              </div>
+            )}
+          </ResumeItem>
+        ))}
+      </ResumeSection>
+
+      {/* Technical Skills Section */}
+      <ResumeSection icon="fa-solid fa-gears" title="Technical Skills">
+        <div className="flex flex-col gap-8">
+          {technicalSkills.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="flex flex-col gap-3"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <i className={`${category.icon} text-accent-secondary text-xs`}></i>
+                <h4 className="text-xs font-bold text-gray-text uppercase tracking-widest">{category.title}</h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <SkillBadge key={skill} name={skill} />
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </ResumeSection>
+
+      {/* Achievements Section */}
+      <ResumeSection icon="fa-solid fa-award" title="Achievements">
+        {achievements.map((item, index) => (
+          <ResumeItem
+            key={index}
+            {...item}
+            delay={index * 0.1}
+          />
+        ))}
+      </ResumeSection>
+    </div>
+  );
+};
 
 export default Resume;

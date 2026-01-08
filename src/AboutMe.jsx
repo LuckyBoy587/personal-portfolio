@@ -1,88 +1,115 @@
+import { motion } from "framer-motion";
 import ContextBox from "./utility/context-box.jsx";
+import TextType from "./components/TextType.jsx";
+import ShinyText from "./components/ShinyText.jsx";
+import Branding from "./Branding.jsx";
 
 const AboutMe = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 10, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <div className={"flex flex-col gap-8 min-w-[min(600px, 100vw)] blur-fade-in origin-top"}>
+      <Branding />
       <ContextBox>
-        <div className="flex items-center gap-4 group transition-all duration-300">
+        <div className="flex items-center gap-5 group mb-4">
           <div
-            className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-            <i className="fa-regular fa-address-card font-light"></i>
+            /* Simplified shadow and removed rotate for GPU performance */
+            className="flex items-center justify-center w-14 h-14 text-accent-secondary text-2xl rounded-2xl bg-secondary-bg/50 border border-card-border transition-all duration-300 group-hover:scale-105 group-hover:border-accent-primary/50">
+            <i className="fa-regular fa-address-card"></i>
           </div>
-          <p className="text-[var(--bright-text)] text-4xl">About Me</p>
+          <div>
+            <h2 className="text-bright-text text-4xl font-bold tracking-tight heading-font">About Me</h2>
+            <div className="h-1 w-0 group-hover:w-full bg-accent-primary transition-all duration-500 rounded-full"></div>
+          </div>
         </div>
-        <section className={"flex flex-col gap-4"}>
-          <p className={"text-[var(--gray-text)]"}>Hey there! I'm Kowshik Baskaran, a curious and passionate Information
+        <section className={"flex flex-col gap-5"}>
+          <p className={"text-gray-text leading-relaxed text-lg"}>
+            Hey there! I'm <ShinyText text="Kowshik Baskaran"></ShinyText>, a curious and passionate Information
             Technology student who's always chasing that next line of code and the thrill of building something
-            impactful.</p>
+            impactful.
+          </p>
 
-          <p className={"text-[var(--gray-text)]"}>Currently in my third year of B.Tech IT, I spend my days diving deep
-            into Data Structures & Algorithms, exploring the vast world of AI and Machine Learning, and crafting
-            projects with ReactJS, Kotlin, and Spring Boot. Whether it's a chatbot that understands sarcasm or a music
-            player coded from scratch, I love bringing ideas to life through code.</p>
+          <p className={"text-gray-text leading-relaxed text-lg"}>
+            Currently in my third year of B.Tech IT, I spend my days diving deep
+            into <span className="text-accent-secondary">Data Structures & Algorithms</span>, exploring the vast world of AI and Machine Learning, and crafting
+            projects with ReactJS, Kotlin, and Spring Boot.
+          </p>
 
-          <p className={"text-[var(--gray-text)]"}>Beyond my academic and technical interests, I'm passionate about
-            anime, always keeping up with the latest series. In my free time, you'll often find me diving into Genshin
-            Impact, and occasionally engaging in some fun in Minecraft.</p>
+          <p className={"text-gray-text leading-relaxed text-lg"}>
+            Beyond code, I'm passionate about anime and gaming. In my free time, you'll often find me in the worlds of <span className="text-accent-primary">Genshin Impact</span> or Minecraft.
+          </p>
         </section>
       </ContextBox>
+
       <ContextBox>
-        <div className="flex items-center gap-4 group transition-all duration-300">
+        <div className="flex items-center gap-5 group mb-8">
           <div
-            className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-            <i className="fa-solid fa-file-pen"></i>
+            /* Simplified shadow and removed rotate for GPU performance */
+            className="flex items-center justify-center w-14 h-14 text-accent-secondary text-2xl rounded-2xl bg-secondary-bg/50 border border-card-border transition-all duration-300 group-hover:scale-105 group-hover:border-accent-primary/50">
+            <i className="fa-solid fa-code-branch"></i>
           </div>
-          <p className="text-[var(--bright-text)] text-4xl">Tech Stack</p>
+          <div>
+            <h2 className="text-bright-text text-4xl font-bold tracking-tight heading-font">Tech Stack</h2>
+            <div className="h-1 w-0 group-hover:w-full bg-accent-secondary transition-all duration-500 rounded-full"></div>
+          </div>
         </div>
-        <div className={"grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 text-[var(--gray-text)] min-w-min"}>
-          <div className={"flex flex-col gap-4"}>{
-            [
-              {icon: "fa-brands fa-java", label: "Java"},
-              {icon: "fa-solid fa-leaf", label: "Spring Boot"},
-              {icon: "fa-solid fa-mountain-sun fa-rotate-90", label: "Kotlin"},
-            ].map(({icon, label}) => (
-              <div key={label} className="flex items-center gap-4 group transition-all duration-300">
-                <div
-                  className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-                  <i className={`${icon}`}></i>
-                </div>
-                <p>{label}</p>
-              </div>
-            ))
-          }</div>
-          <div className={"flex flex-col gap-4"}>{
-            [
-              {icon: "fa-brands fa-python", label: "Python"},
-              {icon: "fa-solid fa-brain", label: "Tensorflow"},
-              {icon: "fa-solid fa-code-branch", label: "VCS"},
-            ].map(({icon, label}) => (
-              <div key={label} className="flex items-center gap-4 group transition-all duration-300">
-                <div
-                  className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-                  <i className={`${icon}`}></i>
-                </div>
-                <p>{label}</p>
-              </div>
-            ))
-          }</div><div className={"flex flex-col gap-4"}>{
-          [
-            {icon: "fa-brands fa-react", label: "ReactJS"},
-            {icon: "fa-solid fa-database", label: "MongoDB"},
-            {icon: "fa-solid fa-wind", label: "Tailwind CSS"},
-          ].map(({icon, label}) => (
-            <div key={label} className="flex items-center gap-4 group transition-all duration-300">
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4"
+        >
+          {[
+            { icon: "fa-brands fa-java", label: "Java", color: "#f89820" },
+            { icon: "fa-solid fa-leaf", label: "Spring Boot", color: "#6db33f" },
+            { icon: "fa-solid fa-mountain-sun", label: "Kotlin", color: "#7f52ff" },
+            { icon: "fa-brands fa-python", label: "Python", color: "#3776ab" },
+            { icon: "fa-solid fa-brain", label: "Tensorflow", color: "#ff6f00" },
+            { icon: "fa-solid fa-code-branch", label: "VCS", color: "#f05032" },
+            { icon: "fa-brands fa-react", label: "ReactJS", color: "#61dafb" },
+            { icon: "fa-solid fa-database", label: "MongoDB", color: "#47a248" },
+            { icon: "fa-solid fa-wind", label: "Tailwind CSS", color: "#06b6d4" },
+          ].map(({ icon, label, color }) => (
+            <motion.div
+              key={label}
+              variants={itemVariants}
+              className="relative group p-4 flex flex-col items-center justify-center gap-3 rounded-2xl bg-secondary-bg/30 border border-card-border hover:border-accent-primary/40 hover:bg-secondary-bg/60 transition-all duration-300 hover:-translate-y-1.5 backdrop-blur-none"
+            >
               <div
-                className="flex items-center justify-center w-12 h-12 text-[var(--secondary-text)] text-2xl p-2 border border-[var(--secondary-bg)] rounded-2xl shadow-[0_0_10px_var(--secondary-bg)] transition-transform group-hover:scale-110">
-                <i className={`${icon}`}></i>
+                className="w-12 h-12 flex items-center justify-center text-3xl transition-transform duration-300 group-hover:scale-110"
+                style={{ color: color }}
+              >
+                <i className={icon}></i>
               </div>
-              <p>{label}</p>
-            </div>
-          ))
-        }</div>
-        </div>
+              <p className="text-sm font-medium text-gray-text group-hover:text-bright-text transition-colors duration-300">{label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
       </ContextBox>
     </div>
-  )
-}
+  );
+};
 
 export default AboutMe;

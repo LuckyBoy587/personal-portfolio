@@ -1,45 +1,135 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./assets/fonts/JetBrainsMono-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Page background with simplified colors - Removed for GPU performance */
 body {
     margin: 0;
     padding: 0;
+    background: var(--window-bg);
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.5s ease;
+    font-family: 'JetBrains Mono', monospace;
     background-color: var(--window-bg);
+    background-image:
+        radial-gradient(var(--accent-glow) 1px, transparent 1px);
+    background-size: 24px 24px;
 }
 
-/* App.css */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-font {
+    font-family: 'JetBrains Mono', monospace;
+}
 
+/* Custom scrollbar with purple accent */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary-bg); /* dark track */
+    background: var(--primary-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--secondary-text);
+    background: var(--accent-secondary);
     border-radius: 10px;
-    box-shadow: inset 0 0 0 2px var(--secondary-text); /* creates an "inner line" effect */
+    box-shadow: inset 0 0 0 2px var(--accent-secondary);
     background-clip: padding-box;
     border: 2px solid transparent;
-    transition: all 0.5s ease;
+    transition: background 0.4s ease;
+    /* Removed 'all' for performance */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #d4af37;
-    box-shadow: inset 0 0 0 2px #d4af37;
+    background: var(--accent-primary);
+    /* Removed box-shadow glow for GPU performance */
 }
 
-/* Put in styles.css or global.css */
+/* Hide scrollbar utility */
 .hide-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;    /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     touch-action: pan-x;
 }
+
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;            /* Chrome, Safari */
+    display: none;
 }
 
+/* Glassmorphism card styling */
+/* Performance-optimized glass-card: Removed backdrop-filter (blur) to save GPU */
+.glass-card {
+    background: var(--card-bg);
+    /* Use slightly higher opacity background defined in theme */
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Reduced shadow size for performance */
+    /* Use transitions instead of filter animations */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Solid card without blur for performance */
+.solid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* Top mask to make content appear translucent as it scrolls above the navbar */
+.sticky-top-fade {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    /* Large enough to cover the gap and provide a smooth transition */
+    background: linear-gradient(to bottom,
+            var(--window-bg) 0%,
+            var(--window-bg) 20%,
+            transparent 100%);
+    z-index: 45;
+    pointer-events: none;
+    margin-bottom: -5rem;
+    /* Offset the height so it doesn't push content down */
+}
+
+/* Subtle glow on hover for interactive elements - Removed for GPU performance */
+.glow-hover {
+    transition: transform 0.3s ease;
+    /* Removed box-shadow transition */
+}
+
+.glow-hover:hover {
+    /* Removed box-shadow glow for GPU performance */
+    transform: translateY(-2px);
+}
+
+/* Icon container styling with glow - Simplified for GPU performance */
+.icon-container {
+    transition: transform 0.3s ease;
+    /* Removed box-shadow transition */
+}
+
+.icon-container:hover {
+    transform: scale(1.05);
+    /* Reduced scale */
+    /* Removed box-shadow glow for GPU performance */
+}
+
+/* Scroll container animations - Removed for GPU performance */
 .scroll-container {
     overflow: hidden;
     width: 100%;
@@ -47,14 +137,203 @@ body {
 
 .scroll-container .flex {
     display: inline-flex;
-    animation: scroll 2s linear infinite alternate;
+    /* Removed infinite scroll animation for GPU performance */
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
+/* Global performance-safe strategy: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
-    100% {
-        transform: translateX(calc(-100%));
+}
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 12px);
+    --radius-4xl: calc(var(--radius) + 16px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    /* Legacy color mappings */
+    --color-window-bg: var(--window-bg);
+    --color-primary-bg: var(--primary-bg);
+    --color-secondary-bg: var(--secondary-bg);
+    --color-card-bg: var(--card-bg);
+    --color-card-border: var(--card-border);
+    --color-primary-text: var(--primary-text);
+    --color-secondary-text: var(--secondary-text);
+    --color-bright-text: var(--bright-text);
+    --color-gray-text: var(--gray-text);
+    --color-accent-primary: var(--accent-primary);
+    --color-accent-secondary: var(--accent-secondary);
+    --color-accent-glow: var(--accent-glow);
+    --color-arrow-bg: var(--arrow-bg);
+    --color-arrow-hover-bg: var(--arrow-hover-bg);
+    --image-profile-pic-gradient: var(--profile-pic-gradient);
+}
+
+:root {
+    --radius: 0.625rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+
+    /* Legacy colors migrated from colors.css */
+    --window-bg: #0a0a12;
+    --primary-bg: #12121a;
+    --secondary-bg: #1a1a28;
+    --card-bg: rgba(20, 20, 35, 0.9);
+    /* Increased opacity for visibility without blur */
+    --card-border: rgba(138, 92, 246, 0.15);
+    --primary-text: #f0f0f5;
+    --secondary-text: #a855f7;
+    --bright-text: #f5f5fa;
+    --gray-text: hsla(250, 20%, 75%, 0.7);
+    --accent-primary: #a855f7;
+    --accent-secondary: #6366f1;
+    --accent-glow: rgba(168, 85, 247, 0.4);
+    --profile-pic-gradient: linear-gradient(135deg, rgba(30, 30, 50, 1) 0%, rgba(10, 10, 18, 1) 100%);
+    --arrow-bg: rgba(168, 85, 247, 0.1);
+    --arrow-hover-bg: rgba(168, 85, 247, 0.3);
+
+    /* Font variables */
+    --heading-font: 'JetBrains Mono', monospace;
+    --body-font: 'JetBrains Mono', monospace;
+    --font-family: 'JetBrains Mono', monospace;
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+.light {
+    --window-bg: #f5f3ff00;
+    --primary-bg: #ffffff;
+    --secondary-bg: #ede9fe;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    /* Increased opacity for visibility without blur */
+    --card-border: rgba(168, 85, 247, 0.3);
+    --primary-text: #1e1b4b;
+    --secondary-text: #7c3aed;
+    --bright-text: #000000;
+    --gray-text: #4b5563;
+    --accent-primary: #a855f7;
+    --accent-secondary: #6366f1;
+    --accent-glow: rgba(168, 85, 247, 0.2);
+    --profile-pic-gradient: linear-gradient(135deg, #ffffff 0%, #ebe2ff 100%);
+    --arrow-bg: rgba(168, 85, 247, 0.1);
+    --arrow-hover-bg: rgba(168, 85, 247, 0.2);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
     }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

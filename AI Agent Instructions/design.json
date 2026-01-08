@@ -1,0 +1,202 @@
+{
+  "designSystem": {
+    "name": "Dark Luminescent SaaS",
+    "purpose": "A modern, premium dark-mode design system optimized for AI, productivity, and developer-focused products.",
+    "aestheticKeywords": [
+      "dark",
+      "minimal",
+      "futuristic",
+      "luminescent",
+      "calm",
+      "premium",
+      "AI-native"
+    ]
+  },
+
+  "colorSystem": {
+    "mode": "dark",
+    "backgrounds": {
+      "primary": {
+        "type": "gradient",
+        "direction": "radial",
+        "baseTone": "deep indigo / near-black",
+        "usage": "page backgrounds, hero sections"
+      },
+      "secondary": {
+        "type": "solid",
+        "tone": "very dark neutral",
+        "usage": "panels, cards, modals"
+      }
+    },
+    "accentColors": {
+      "primaryAccent": {
+        "hue": "violet-purple",
+        "intensity": "high saturation",
+        "effects": ["glow", "soft bloom"],
+        "usage": "hero visuals, call-to-action emphasis"
+      },
+      "secondaryAccent": {
+        "hue": "cool blue-purple",
+        "intensity": "medium",
+        "usage": "hover states, secondary highlights"
+      }
+    },
+    "textColors": {
+      "primaryText": "soft white",
+      "secondaryText": "muted gray-lavender",
+      "disabledText": "low-contrast gray"
+    }
+  },
+
+  "typography": {
+    "fontStyle": "modern sans-serif",
+    "characteristics": [
+      "clean",
+      "rounded",
+      "high readability",
+      "slightly futuristic"
+    ],
+    "scale": {
+      "heroHeading": {
+        "weight": "medium-to-bold",
+        "letterSpacing": "slightly tight",
+        "lineHeight": "compact"
+      },
+      "sectionHeading": {
+        "weight": "medium",
+        "opacity": "high"
+      },
+      "bodyText": {
+        "weight": "regular",
+        "opacity": "medium"
+      },
+      "metaText": {
+        "size": "small",
+        "opacity": "low"
+      }
+    }
+  },
+
+  "layoutSystem": {
+    "structure": {
+      "navigation": "top-fixed horizontal bar",
+      "heroSection": "center-aligned with strong visual focal point",
+      "contentSections": "stacked vertical flow",
+      "panels": "floating card-style containers"
+    },
+    "alignment": {
+      "primary": "center",
+      "secondary": "grid-based"
+    },
+    "spacing": {
+      "globalPadding": "generous",
+      "sectionGap": "large",
+      "componentGap": "medium"
+    },
+    "containerStyle": {
+      "borderRadius": "large",
+      "edges": "soft",
+      "separation": "depth-based instead of borders"
+    }
+  },
+
+  "visualEffects": {
+    "lighting": {
+      "style": "ambient glow",
+      "source": "central or horizontal focal light",
+      "falloff": "smooth gradient fade"
+    },
+    "glassmorphism": {
+      "enabled": true,
+      "blurLevel": "medium",
+      "backgroundOpacity": "low",
+      "usage": "panels, overlays, floating UI"
+    },
+    "shadows": {
+      "type": "soft diffuse",
+      "depthLevels": ["low", "medium"],
+      "colorBias": "cool-toned"
+    }
+  },
+
+  "interactionDesign": {
+    "hoverStates": {
+      "effect": "subtle glow + brightness increase",
+      "transition": "smooth ease-out"
+    },
+    "focusStates": {
+      "indicator": "accent glow or outline",
+      "intensity": "low"
+    },
+    "clickFeedback": {
+      "animation": "micro-scale or opacity shift"
+    }
+  },
+
+  "motionSystem": {
+    "animationStyle": "slow and fluid",
+    "easing": "ease-in-out",
+    "entryAnimations": [
+      "fade-in",
+      "soft vertical slide",
+      "glow emergence"
+    ],
+    "loopingEffects": {
+      "allowed": true,
+      "usage": "ambient visuals only",
+      "speed": "very slow"
+    }
+  },
+
+  "componentPhilosophy": {
+    "buttons": {
+      "shape": "pill or rounded rectangle",
+      "background": "accent gradient or translucent",
+      "textWeight": "medium"
+    },
+    "cards": {
+      "appearance": "floating",
+      "background": "dark translucent",
+      "border": "none"
+    },
+    "inputs": {
+      "style": "minimal",
+      "background": "slightly elevated from page",
+      "focusEffect": "soft glow"
+    }
+  },
+
+  "brandTone": {
+    "emotionalFeel": [
+      "thoughtful",
+      "intelligent",
+      "calm confidence"
+    ],
+    "personality": "quietly powerful",
+    "avoid": [
+      "harsh contrasts",
+      "bright flat colors",
+      "visual clutter",
+      "heavy borders"
+    ]
+  },
+
+  "replicationGuidelines": {
+    "consistencyRules": [
+      "Always use dark backgrounds with luminous accents",
+      "Prefer depth and light over lines and borders",
+      "Keep visuals calm and centered",
+      "Animations should feel ambient, not playful"
+    ],
+    "dos": [
+      "Use gradients subtly",
+      "Emphasize a single focal visual per section",
+      "Maintain high whitespace ratios"
+    ],
+    "donts": [
+      "Do not use flat bright colors",
+      "Do not overcrowd layouts",
+      "Do not use sharp corners excessively"
+    ]
+  }
+}

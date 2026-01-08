@@ -49,67 +49,67 @@ const TechStack = ({ project }) => {
   return (
     <div className="relative flex items-center">
       {/* Left Arrow - Conditionally Rendered */}
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-0 z-10 p-2 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] opacity-50 hover:opacity-100 text-white rounded-full transition-all duration-300"
-          aria-label="Scroll left"
+      {/* Left Arrow - Conditionally Rendered and Hidden by default */}
+      <button
+        onClick={() => scroll('left')}
+        /* Removed backdrop-blur-sm for GPU performance */
+        className={`absolute left-0 z-10 p-1.5 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] text-[var(--secondary-text)] rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollLeft && 'pointer-events-none !opacity-0'}`}
+        aria-label="Scroll left"
+      >
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-      )}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2.5}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
 
       {/* Scrollable Tech Stack Container */}
       <div
         ref={scrollRef}
-        className="flex text-nowrap overflow-x-auto gap-2 text-sm scroll-smooth hide-scrollbar"
+        className="flex text-nowrap overflow-x-auto gap-1.5 text-xs scroll-smooth hide-scrollbar py-1"
       >
         {project.tech.map((tech, i) => (
-          <p
+          <span
             key={i}
-            className="bg-[var(--secondary-bg)] px-3 py-2 rounded-full border border-[var(--gray-text)] group-hover:border-blue-400 transition-colors duration-300"
+            className="bg-[var(--secondary-bg)] text-[var(--primary-text)] px-2 py-0.5 rounded-md border border-[var(--card-border)] hover:border-[var(--accent-primary)]/50 hover:bg-[var(--accent-glow)] transition-all duration-300 cursor-default"
           >
             {tech}
-          </p>
+          </span>
         ))}
       </div>
 
       {/* Right Arrow - Conditionally Rendered */}
-      {canScrollRight && (
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-0 z-10 p-2 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] opacity-50 hover:opacity-100 text-white rounded-full transition-all duration-300"
-          aria-label="Scroll right"
+      {/* Right Arrow - Conditionally Rendered and Hidden by default */}
+      <button
+        onClick={() => scroll('right')}
+        /* Removed backdrop-blur-sm for GPU performance */
+        className={`absolute right-0 z-10 p-1.5 bg-[var(--arrow-bg)] hover:bg-[var(--arrow-hover-bg)] text-[var(--secondary-text)] rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 ${!canScrollRight && 'pointer-events-none !opacity-0'}`}
+        aria-label="Scroll right"
+      >
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      )}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2.5}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </div>
   );
 };
