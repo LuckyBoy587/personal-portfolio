@@ -35,37 +35,29 @@ const GlareHover = ({
   const animateIn = () => {
     const el = overlayRef.current;
     if (!el) return;
-
-    el.style.transition = 'none';
-    el.style.backgroundPosition = '-100% -100%, 0 0';
-    el.style.transition = `${transitionDuration}ms ease`;
-    el.style.backgroundPosition = '100% 100%, 0 0';
+    el.style.opacity = glareOpacity;
   };
 
   const animateOut = () => {
     const el = overlayRef.current;
     if (!el) return;
-
-    if (playOnce) {
-      el.style.transition = 'none';
-      el.style.backgroundPosition = '-100% -100%, 0 0';
-    } else {
-      el.style.transition = `${transitionDuration}ms ease`;
-      el.style.backgroundPosition = '-100% -100%, 0 0';
-    }
+    el.style.opacity = '0';
   };
 
   const overlayStyle = {
     position: 'absolute',
     inset: 0,
     background: `linear-gradient(${glareAngle}deg,
-        hsla(0,0%,0%,0) 60%,
-        ${rgba} 70%,
+        hsla(0,0%,0%,0) 0%,
+        ${rgba} 50%,
         hsla(0,0%,0%,0) 100%)`,
-    backgroundSize: `${glareSize}% ${glareSize}%, 100% 100%`,
+    backgroundSize: '100% 100%',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '-100% -100%, 0 0',
-    pointerEvents: 'none'
+    backgroundPosition: 'center',
+    pointerEvents: 'none',
+    opacity: 0,
+    transition: `opacity ${transitionDuration}ms ease`,
+    willChange: 'opacity'
   };
 
   return (

@@ -18,7 +18,7 @@ const Navbar = ({ navTabs, selectedIndex, setActiveTabIndex }) => {
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
           // Scrolling down
           setScrollVisible(false);
-          setIsMenuOpen(false); // Close menu on scroll
+          // setIsMenuOpen(false); // Removed to prevent instant collapse on minor scroll adjustments
         } else {
           // Scrolling up or at the top
           setScrollVisible(true);
@@ -81,9 +81,9 @@ const Navbar = ({ navTabs, selectedIndex, setActiveTabIndex }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-64 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
-        <div className="flex flex-col gap-1 p-2 items-center border-t border-card-border/30">
+      {/* Mobile Menu Dropdown - Absolute Overlay */}
+      <div className={`md:hidden absolute top-[calc(100%+0.5rem)] left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out solid-card rounded-2xl shadow-2xl ${isMenuOpen ? "max-h-64 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"}`}>
+        <div className="flex flex-col gap-1 p-2 items-center">
           {navTabs.map(({ name }, index) => (
             <p
               key={index}

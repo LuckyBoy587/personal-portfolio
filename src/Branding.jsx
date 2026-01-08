@@ -6,7 +6,7 @@ const Branding = () => {
   return (
     <div
       ref={brandingRef}
-      className={`flex flex-col md:flex-row items-center gap-8 w-fit mx-auto h-fit p-5 rounded-2xl animate-right-to-left transition-all duration-300 glass-card max-h-none hide-scrollbar border border-card-border/40 shadow-xl`}>
+      className={`flex flex-col md:flex-row items-center gap-8 w-fit mx-auto h-fit p-5 rounded-2xl animate-right-to-left transition-all duration-300 glass-card max-h-none border border-card-border/40 shadow-xl`}>
 
       {/* Profile Section */}
       <div className="flex flex-col items-center gap-2 pr-2">
@@ -58,7 +58,7 @@ const Branding = () => {
             </div>
             <div className="min-w-0">
               <p className="text-gray-text text-[9px] uppercase tracking-wider font-semibold opacity-70">{label}</p>
-              <p className="text-bright-text font-medium text-sm truncate max-w-[150px]">{value}</p>
+              <p className="text-bright-text font-medium text-sm">{value}</p>
             </div>
           </div>
         ))}

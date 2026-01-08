@@ -31,41 +31,11 @@ export const AnimatedThemeToggler = ({
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return
 
-    if (!document.startViewTransition) {
-      document.documentElement.classList.toggle("light")
-      localStorage.setItem("theme", !isLight ? "light" : "dark")
-      return
-    }
-
-    await document.startViewTransition(() => {
-      flushSync(() => {
-        const newLightState = !isLight
-        setIsLight(newLightState)
-        document.documentElement.classList.toggle("light")
-        localStorage.setItem("theme", newLightState ? "light" : "dark")
-      })
-    }).ready
-
-    const { top, left, width, height } =
-      buttonRef.current.getBoundingClientRect()
-    const x = left + width / 2
-    const y = top + height / 2
-    const maxRadius = Math.hypot(
-      Math.max(left, window.innerWidth - left),
-      Math.max(top, window.innerHeight - top)
-    )
-
-    document.documentElement.animate({
-      clipPath: [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${maxRadius}px at ${x}px ${y}px)`,
-      ],
-    }, {
-      duration,
-      easing: "ease-in-out",
-      pseudoElement: "::view-transition-new(root)",
-    })
-  }, [isLight, duration])
+    const newLightState = !isLight
+    setIsLight(newLightState)
+    document.documentElement.classList.toggle("light")
+    localStorage.setItem("theme", newLightState ? "light" : "dark")
+  }, [isLight])
 
   return (
     <button

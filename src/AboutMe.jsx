@@ -16,14 +16,13 @@ const AboutMe = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   };
@@ -96,21 +95,15 @@ const AboutMe = () => {
             <motion.div
               key={label}
               variants={itemVariants}
-              whileHover={{
-                y: -2, /* Reduced distance */
-                transition: { duration: 0.2 }
-              }}
-              className="relative group p-4 flex flex-col items-center justify-center gap-3 rounded-2xl bg-secondary-bg/30 border border-card-border hover:border-accent-primary/30 hover:bg-secondary-bg/50 transition-colors duration-300"
+              className="relative group p-4 flex flex-col items-center justify-center gap-3 rounded-2xl bg-secondary-bg/30 border border-card-border hover:border-accent-primary/40 hover:bg-secondary-bg/60 transition-all duration-300 hover:-translate-y-1.5 backdrop-blur-none"
             >
               <div
-                className="w-12 h-12 flex items-center justify-center text-3xl transition-all duration-300 group-hover:scale-105"
+                className="w-12 h-12 flex items-center justify-center text-3xl transition-transform duration-300 group-hover:scale-110"
                 style={{ color: color }}
               >
                 <i className={icon}></i>
               </div>
               <p className="text-sm font-medium text-gray-text group-hover:text-bright-text transition-colors duration-300">{label}</p>
-
-              {/* Removed absolute-positioned blur glow for GPU performance */}
             </motion.div>
           ))}
         </motion.div>

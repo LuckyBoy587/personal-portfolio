@@ -78,8 +78,7 @@ const BlurText = ({
 
         return (
           <motion.span
-            /* Removed filter from will-change for GPU performance */
-            className="inline-block will-change-[transform,opacity]"
+            className="inline-block"
             key={index}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}

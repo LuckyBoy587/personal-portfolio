@@ -28,7 +28,7 @@ function Projects() {
     Promise.all(imageUrls.map(loadImage)).then(() => {
       if (mounted) {
         // Subtle delay for smoother transition from loader to content
-        setTimeout(() => setImagesLoaded(true), 400);
+        setTimeout(() => setImagesLoaded(true), 1000);
       }
     });
 
@@ -61,16 +61,16 @@ function Projects() {
   if (!imagesLoaded) {
     return (
       <div className="flex flex-col justify-center items-center min-h-[400px] gap-6">
-        <div className="relative w-20 h-20">
+        <div className="relative w-16 h-16">
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
-            className="w-full h-full border-2 border-t-accent-primary border-r-transparent border-b-accent-secondary border-l-transparent rounded-full shadow-[0_0_15px_rgba(var(--accent-primary-rgb),0.3)]"
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            className="w-full h-full border-4 border-accent-primary/20 border-t-accent-primary rounded-full"
           />
           <motion.div
-            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.4, 0.8, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0 m-auto w-10 h-10 bg-accent-primary rounded-full blur-2xl"
+            animate={{ scale: [0.8, 1, 0.8] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 m-auto w-4 h-4 bg-accent-secondary rounded-full"
           />
         </div>
         <div className="flex flex-col items-center gap-1">
