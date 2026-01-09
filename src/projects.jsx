@@ -28,7 +28,7 @@ function Projects() {
     Promise.all(imageUrls.map(loadImage)).then(() => {
       if (mounted) {
         // Subtle delay for smoother transition from loader to content
-        setTimeout(() => setImagesLoaded(true), 1000);
+        setTimeout(() => setImagesLoaded(true), 750);
       }
     });
 

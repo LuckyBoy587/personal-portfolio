@@ -54,5 +54,21 @@
     "github": "https://github.com/LuckyBoy587/TODO-Web-App",
     "live": "https://luckyboy587.github.io/TODO-Web-App/",
     "image": "todo-web-app.png"
+  }, 
+  {
+    "title": "AI Coding Platform",
+    "description": "Built AI-Coding-Platform, an interactive web app for AI-enhanced coding challenges with real-time feedback and progress tracking",
+    "tech": ["React", "Node.js", "Express", "Docker", "Heroku"],
+    "github": "https://github.com/LuckyBoy587/AI-Coding-Platform",
+    "live": "https://luckyboy587.github.io/AI-Coding-Platform/",
+    "image": "ai-coding-platform.png"
+  },
+  {
+    "title": "Leetcode Helper Extension",
+    "description": "Developed a Chrome extension that provides hints and solutions for Leetcode problems, enhancing user experience and learning efficiency.",
+    "tech": ["JavaScript", "Chrome Extension API", "ReactJS"],
+    "github": "https://github.com/LuckyBoy587/Leetcode-Helper-Extension",
+    "live": "",
+    "image": "leetcode-helper.png"
   }
 ]

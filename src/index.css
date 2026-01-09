@@ -12,7 +12,7 @@
 
 /* Page background with simplified colors - Removed for GPU performance */
 body {
-    margin: 0;
+    margin: 0;  
     padding: 0;
     background: var(--window-bg);
     min-height: 100vh;
@@ -85,7 +85,7 @@ h6,
 .solid-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 8px 32px var(--secondary-bg);
 }
 
 /* Top mask to make content appear translucent as it scrolls above the navbar */
